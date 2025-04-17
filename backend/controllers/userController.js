@@ -111,33 +111,27 @@ const registerUser = async (req, res) => {
     }
 }
 
-const logoutUser = async (req, res) => {
-    try {
-        const { userId } = req.body;
-
-        await userModel.findByIdAndUpdate(
-            userId,
-            {
-                $set: { refreshToken: undefined }
-            },
-            {
-                new: true
-            }
-        );
-
-        const options = {
-            httpOnly: true,
-            secure: true
+const logoutUser = asyncHandler(async (req, res) => {
+    await userModel.findByIdAndUpdate(
+        req.user._id,
+        {
+            $set: { refreshToken: undefined }
+        },
+        {
+            new: true
         }
+    )
 
-        res
-            .cookie("accessToken", options)
-            .cookie("refreshToken", options)
-            .json({ success: true, message: "Logout sucessfully" })
-    } catch (error) {
-        console.log(error);
+    const options = {
+        httpOnly: true,
+        secure: true
     }
-}
+
+    return res.status(200)
+        .clearCookie("accessToken", options)
+        .clearCookie("refreshToken", options)
+        .json(new ApiResponse(200, {}, "User logged out!!"))
+})
 
 const adminLogin = async (req, res) => {
     try {
