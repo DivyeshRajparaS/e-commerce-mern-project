@@ -1,0 +1,35 @@
+# Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+.env
+.env.local
+.env.production
+.env.development
+
+# Build output
+dist/
+build/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE/Editor files
+.vscode/
+.idea/
+*.iml
+*.sublime-project
+*.sublime-workspace
+
+# Logs
+*.log
+
+# Backup and temp files
+*.swp
+*.swo
+*.bak
+*.tmp
+
+# Code coverage
+coverage/
