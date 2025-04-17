@@ -30,7 +30,7 @@ app.use(session({ secret: 'ysecret', resave: false, saveUninitialized: true }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 const allowedOriginls = [
-    "https://e-commerce-electronic-store.vercel.app",
+    "https://e-commerce-device-store.vercel.app",
     "https://e-commerce-store-admin-lime.vercel.app",
     "http://localhost:5173",
     "http://localhost:5174"
