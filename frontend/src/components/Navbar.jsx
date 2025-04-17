@@ -92,7 +92,7 @@ const Navbar = () => {
                                 {/* <p onClick={() => navigate('/orders')} className='cursor-pointer hover:text-black'>Orders</p> */}
                                 <p onClick={() => navigate('/anotherOrders')} className='cursor-pointer hover:text-black'>Orders</p>
                                 <p onClick={() => navigate('/emailsupport')} className='cursor-pointer hover:text-black'>Customer Support</p>
-                                <p onClick={logout} className='cursor-pointer hover:text-black'>Logout</p>
+                                <p onClick={() => logout()} className='cursor-pointer hover:text-black'>Logout</p>
                             </div>
                         </div>
                     }
